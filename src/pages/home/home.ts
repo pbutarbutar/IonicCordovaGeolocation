@@ -24,7 +24,9 @@ export class HomePage {
 
 	initializeMap() {
 
-		 this.geolocation.getCurrentPosition().then((position) => {
+		let locationOptions = {timeout: 10000, enableHighAccuracy: true};
+
+		this.geolocation.getCurrentPosition(locationOptions).then((position) => {
 
 			let options = {
 			  center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
